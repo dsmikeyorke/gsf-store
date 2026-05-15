@@ -14,6 +14,10 @@
       >
     {%- endif -%}
 
+    {% comment %} Typekit Fonts {% endcomment %}
+    <link rel='stylesheet' href='https://use.typekit.net/tzg2lni.css' />
+
+
     {% # theme-check-disable RemoteAsset %}
     {% comment %} This a way to wait for main content to load when navigating to a new page so that the view transitions can work consistently {% endcomment %}
     {% if settings.transition_to_main_product or settings.page_transition_enabled %}
@@ -31,7 +35,8 @@
     {%- render 'scripts' -%}
     {%- render 'theme-styles-variables' -%}
     {%- render 'color-schemes' -%}
-
+    {{ 'styles.css' | asset_url | stylesheet_tag }}
+    
     {% if request.design_mode %}
       {%- render 'theme-editor' -%}
     {% endif %}
